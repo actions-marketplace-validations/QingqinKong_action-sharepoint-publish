@@ -22,8 +22,8 @@ if (process.env.GITHUB_REF) {
 
 var fileOptions = {
     folder: process.env.LIB_FOLDER,
-    fileName: `${trimSlashes(process.env.GITHUB_REPOSITORY)}_${ref}_${now}.apk`,
-    fileContent: fs.readFileSync(process.env.FILE_PATH)
+    fileName: `${trimSlashes(process.env.APK_NAME)}_${now}.apk`,
+    fileContent: fs.readFileSync(process.env.APK_URL)
 };
 
 spsave(coreOptions, creds, fileOptions)

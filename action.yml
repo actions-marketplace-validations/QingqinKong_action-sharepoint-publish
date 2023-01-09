@@ -19,6 +19,14 @@ inputs:
     description: 'The path where to upload the archive in the library'
     required: true
     default: "Shared documents"
+  apk_url:
+    description: 'Apk Url'
+    required: true
+    default: "android/app/build/outputs/apk/release/app-release-signed.apk"
+  apk_name:
+    description: 'Apk Name'
+    required: true
+    default: "Sreading"
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -27,3 +35,5 @@ runs:
     USER : ${{ inputs.sharepoint_user }}
     PASSWD: ${{ inputs.sharepoint_password }}
     LIB_FOLDER : ${{ inputs.library_folder }}
+    APK_URL: ${{ inputs.apk_url }}
+    APK_NAME: ${{ inputs.apk_name }}
