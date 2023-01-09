@@ -1,7 +1,7 @@
 # action.yml
-name: 'Publish to Sharepoint'
+name: 'Publish apk to Sharepoint'
 description: 'Create a archive of the repository and upload it to a Sharepoint library'
-author: 'Olivier Brassard'
+author: 'kqq'
 branding:
   icon: 'upload-cloud'  
   color: 'green'
