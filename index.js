@@ -21,7 +21,7 @@ if (process.env.GITHUB_REF) {
 }
 var fileOptions = {};
 if (process.env.APK_NAME && process.env.APK_URL) {
-    var fileOptions = {
+    fileOptions = {
         folder: process.env.LIB_FOLDER,
         fileName: `${trimSlashes(process.env.APK_NAME)}_${now}.apk`,
         fileContent: fs.readFileSync(process.env.APK_URL)
@@ -30,7 +30,7 @@ if (process.env.APK_NAME && process.env.APK_URL) {
     if (process.env.GLOB_URL == "") {
         return;
     }
-    var fileOptions = {
+    fileOptions = {
         folder: process.env.LIB_FOLDER,
         glob: process.env.GLOB_URL,
     };
