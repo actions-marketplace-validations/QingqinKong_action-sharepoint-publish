@@ -27,17 +27,14 @@ if (process.env.GITHUB_REF) {
 var fileOptions = {};
 if (process.env.APK_NAME != "" && process.env.APK_URL != "") {
   console.log("upload file");
-  fileOptions = {
-    folder: process.env.LIB_FOLDER,
-    fileName: `${trimSlashes(process.env.APK_NAME)}_${now}.apk`,
-    fileContent: fs.readFileSync(process.env.APK_URL),
-  };
+
+  fileOptions.folder = process.env.LIB_FOLDER;
+  fileOptions.fileName = `${trimSlashes(process.env.APK_NAME)}_${now}.apk`;
+  fileOptions.fileContent = fs.readFileSync(process.env.APK_URL);
 } else if (process.env.GLOB_URL != "") {
   console.log("upload glob");
-  fileOptions = {
-    folder: process.env.LIB_FOLDER,
-    glob: process.env.GLOB_URL,
-  };
+  fileOptions.folder = process.env.LIB_FOLDER;
+  fileOptions.glob = process.env.GLOB_URL;
 }
 
 if (Object.keys(fileOptions).length == 0) {
