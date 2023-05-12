@@ -21,12 +21,16 @@ inputs:
     default: "Shared documents"
   apk_url:
     description: 'Apk Url'
-    required: true
+    required: false
     default: "android/app/build/outputs/apk/release/app-release-signed.apk"
   apk_name:
     description: 'Apk Name'
-    required: true
+    required: false
     default: "Sreading"
+  glob_url:
+    description: 'Apk Name'
+    required: false
+    default: ""
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -37,3 +41,4 @@ runs:
     LIB_FOLDER : ${{ inputs.library_folder }}
     APK_URL: ${{ inputs.apk_url }}
     APK_NAME: ${{ inputs.apk_name }}
+    GLOB_URL: ${{ inputs.glob_url }}

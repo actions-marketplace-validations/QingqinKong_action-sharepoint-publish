@@ -19,12 +19,25 @@ var ref = "";
 if (process.env.GITHUB_REF) {
     ref = process.env.GITHUB_REF.substr(process.env.GITHUB_REF.lastIndexOf('/') + 1);
 }
+var fileOptions = {};
+if (process.env.APK_NAME && process.env.APK_URL) {
+    var fileOptions = {
+        folder: process.env.LIB_FOLDER,
+        fileName: `${trimSlashes(process.env.APK_NAME)}_${now}.apk`,
+        fileContent: fs.readFileSync(process.env.APK_URL)
+    };
+} else if (process.env.GLOB_URL) {
+    if (process.env.GLOB_URL == "") {
+        return;
+    }
+    var fileOptions = {
+        folder: process.env.LIB_FOLDER,
+        glob: process.env.GLOB_URL,
+    };
+}
 
-var fileOptions = {
-    folder: process.env.LIB_FOLDER,
-    fileName: `${trimSlashes(process.env.APK_NAME)}_${now}.apk`,
-    fileContent: fs.readFileSync(process.env.APK_URL)
-};
+if (Object.keys(fileOptions).length == 0)
+    return;
 
 spsave(coreOptions, creds, fileOptions)
     .then(function () {
