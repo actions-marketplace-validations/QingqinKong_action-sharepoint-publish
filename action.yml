@@ -22,11 +22,11 @@ inputs:
   apk_url:
     description: 'Apk Url'
     required: false
-    default: "android/app/build/outputs/apk/release/app-release-signed.apk"
+    default: ""
   apk_name:
     description: 'Apk Name'
     required: false
-    default: "Sreading"
+    default: ""
   glob_url:
     description: 'Apk Name'
     required: false
